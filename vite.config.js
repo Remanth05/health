@@ -5,35 +5,25 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: "::",
     port: 8080,
-    fs: {
-      allow: [".", "./src", "./shared"],
+    proxy: {
+      "/api": {
+        target: "http://localhost:3001",
+        changeOrigin: true,
+      },
     },
   },
   build: {
     outDir: "dist/spa",
   },
-  plugins: [react(), expressPlugin()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@server": path.resolve(__dirname, "./src/server"),
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
-}));
-
-function expressPlugin() {
-  return {
-    name: "express-plugin",
-    apply: "serve",
-    async configureServer(server) {
-      const { createServer } = await import("./src/server/index.js");
-      const app = createServer();
-      server.middlewares.use(app);
-    },
-  };
-}
+});

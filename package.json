@@ -11,13 +11,14 @@
     ]
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"node dev-server.js\"",
+    "dev:client": "vite",
+    "dev:server": "node dev-server.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.js",
     "start": "node dist/server/node-build.mjs",
     "preview": "vite preview",
-    "typecheck": "echo 'TypeScript checking disabled - using JavaScript only'",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -34,6 +35,7 @@
     "zod": "^3.22.0"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
