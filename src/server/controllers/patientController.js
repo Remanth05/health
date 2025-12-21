@@ -85,7 +85,19 @@ export const getMyMedicalRecords = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
-    const { firstName, lastName, phone, address, city, state, zipCode, dateOfBirth, gender, medicalHistory, allergies } = req.body;
+    const {
+      firstName,
+      lastName,
+      phone,
+      address,
+      city,
+      state,
+      zipCode,
+      dateOfBirth,
+      gender,
+      medicalHistory,
+      allergies,
+    } = req.body;
 
     const user = await User.findById(req.user.id);
     if (!user) {

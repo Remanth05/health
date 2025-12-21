@@ -1,6 +1,7 @@
 # Hospital Management System - Project Structure Documentation
 
 ## Overview
+
 A complete Hospital Management System built with the MERN stack (MongoDB, Express.js, React.js, Node.js) using pure JavaScript with .jsx files. The system features role-based access control (Admin, Doctor, Patient), appointment management, medical records, prescriptions, and billing.
 
 ## 📁 Complete Project Structure
@@ -82,10 +83,10 @@ hospital-management-system/
 ### Backend Structure
 
 #### Models (Database Schemas)
+
 - **User.js** - Stores user information with roles (admin, doctor, patient)
   - Password hashing with bcrypt
   - Role-specific fields (specialization for doctors, medical history for patients)
-  
 - **Department.js** - Hospital departments
   - Associated doctors
   - Department head
@@ -113,12 +114,14 @@ hospital-management-system/
 #### Controllers & Routes
 
 **Authentication** (`authController.js`, `authRoutes.js`)
+
 - User registration with role selection
 - User login with JWT token generation
 - Current user fetch endpoint
 - Bcrypt password hashing
 
 **Admin Operations** (`adminController.js`, `adminRoutes.js`)
+
 - Dashboard statistics
 - Doctor management
 - Patient management
@@ -127,6 +130,7 @@ hospital-management-system/
 - Billing reports
 
 **Doctor Operations** (`doctorController.js`, `doctorRoutes.js`)
+
 - View appointments
 - Add diagnosis to appointments
 - Write prescriptions
@@ -134,6 +138,7 @@ hospital-management-system/
 - Create medical records
 
 **Patient Operations** (`patientController.js`, `patientRoutes.js`)
+
 - Book appointments
 - View own appointments
 - Cancel appointments
@@ -142,6 +147,7 @@ hospital-management-system/
 - Update profile
 
 #### Middleware
+
 - **authMiddleware.js** - JWT verification and role-based access control
   - Protects routes requiring authentication
   - Validates user roles for specific endpoints
@@ -149,6 +155,7 @@ hospital-management-system/
 ### Frontend Structure
 
 #### Pages
+
 - **Home.jsx** - Landing page with feature showcase
 - **Login.jsx** - User authentication
 - **Register.jsx** - New user registration with role selection
@@ -158,10 +165,12 @@ hospital-management-system/
 - **NotFound.jsx** - 404 error page
 
 #### Components
+
 - **Header.jsx** - Navigation bar (responsive, mobile-friendly)
 - **ProtectedRoute.jsx** - Route protection based on user role
 
 #### Context
+
 - **AuthContext.jsx** - Global authentication state
   - User login/logout
   - Token management
@@ -170,17 +179,20 @@ hospital-management-system/
 ## 🔐 Authentication & Security
 
 ### JWT-based Authentication
+
 - Tokens generated on login/registration
 - Tokens stored in localStorage
 - Token passed in Authorization headers for API calls
 - Automatic token refresh on app load
 
 ### Password Security
+
 - Bcrypt hashing with salt rounds
 - Passwords never stored in plaintext
 - `comparePassword()` method for authentication
 
 ### Role-Based Access Control
+
 - Middleware checks user role on protected routes
 - Three roles: admin, doctor, patient
 - Each role has specific permissions
@@ -196,6 +208,7 @@ hospital-management-system/
 ## 🚀 Running the Application
 
 ### Development
+
 ```bash
 # Install dependencies
 pnpm install
@@ -203,10 +216,12 @@ pnpm install
 # Start dev server (client + server)
 pnpm dev
 ```
+
 - Frontend: http://localhost:8080
 - Backend API: http://localhost:8080/api
 
 ### Production Build
+
 ```bash
 # Build client and server
 pnpm build
@@ -218,11 +233,13 @@ npm start
 ## 📡 API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - User registration
 - `POST /api/auth/login` - User login
 - `GET /api/auth/me` - Get current user (protected)
 
 ### Admin
+
 - `GET /api/admin/dashboard-stats` - Dashboard statistics
 - `GET /api/admin/doctors` - List all doctors
 - `GET /api/admin/patients` - List all patients
@@ -232,6 +249,7 @@ npm start
 - `GET /api/admin/billing` - Get billing info
 
 ### Doctor
+
 - `GET /api/doctor/appointments` - My appointments
 - `PUT /api/doctor/appointments/:id/diagnosis` - Update diagnosis
 - `POST /api/doctor/prescriptions` - Create prescription
@@ -239,6 +257,7 @@ npm start
 - `POST /api/doctor/medical-records` - Create medical record
 
 ### Patient
+
 - `POST /api/patient/appointments` - Book appointment
 - `GET /api/patient/appointments` - My appointments
 - `DELETE /api/patient/appointments/:id` - Cancel appointment
@@ -247,6 +266,7 @@ npm start
 - `PUT /api/patient/profile` - Update profile
 
 ### General
+
 - `GET /api/appointments` - Get appointments
 - `GET /api/prescriptions` - Get prescriptions
 - `GET /api/billing` - Get billing info
@@ -266,20 +286,24 @@ NODE_ENV=development                     # Environment
 ## 📦 Dependencies
 
 ### Core
+
 - `react@18.3.1` - UI library
 - `express@5.1.0` - Backend framework
 - `mongoose@7.7.0` - MongoDB ORM
 - `react-router-dom@6.30.1` - Client-side routing
 
 ### Security
+
 - `bcrypt@5.1.1` - Password hashing
 - `jsonwebtoken@9.1.2` - JWT generation/verification
 
 ### Styling
+
 - `tailwindcss@3.4.17` - CSS framework
 - `lucide-react@0.539.0` - Icon library
 
 ### Utilities
+
 - `zod@3.25.76` - Schema validation
 - `sonner@1.7.4` - Toast notifications
 - `@tanstack/react-query@5.84.2` - Data fetching
@@ -305,6 +329,7 @@ API returns role-specific data
 ## ✨ Features
 
 ### For Patients
+
 - ✅ Register and login
 - ✅ Book appointments with doctors
 - ✅ View appointment history
@@ -314,6 +339,7 @@ API returns role-specific data
 - ✅ Update personal profile
 
 ### For Doctors
+
 - ✅ View assigned appointments
 - ✅ Update patient diagnosis
 - ✅ Write and manage prescriptions
@@ -321,6 +347,7 @@ API returns role-specific data
 - ✅ Create medical records
 
 ### For Administrators
+
 - ✅ Dashboard with statistics
 - ✅ Manage doctors and patients
 - ✅ Manage departments

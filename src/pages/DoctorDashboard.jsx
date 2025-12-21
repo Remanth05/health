@@ -60,9 +60,7 @@ export default function DoctorDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900">
-            Welcome, Dr. {user?.lastName}
-          </h1>
+          <h1 className="text-4xl font-bold text-gray-900">Welcome, Dr. {user?.lastName}</h1>
           <p className="text-gray-600 text-lg">Doctor Dashboard</p>
         </div>
 
@@ -106,7 +104,10 @@ export default function DoctorDashboard() {
                   : "border-transparent text-gray-600 hover:text-gray-900"
               }`}
             >
-              {tab.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+              {tab
+                .split("-")
+                .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+                .join(" ")}
             </button>
           ))}
         </div>
@@ -158,7 +159,11 @@ export default function DoctorDashboard() {
         {activeTab !== "appointments" && (
           <div className="bg-white rounded-xl p-8 text-center">
             <p className="text-gray-600 text-lg">
-              {activeTab.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")} management coming soon...
+              {activeTab
+                .split("-")
+                .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+                .join(" ")}{" "}
+              management coming soon...
             </p>
           </div>
         )}

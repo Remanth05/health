@@ -74,9 +74,7 @@ export default function PatientDashboard() {
         {/* Welcome Section */}
         <div className="mb-8 flex justify-between items-start">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900">
-              Welcome, {user?.firstName}
-            </h1>
+            <h1 className="text-4xl font-bold text-gray-900">Welcome, {user?.firstName}</h1>
             <p className="text-gray-600 text-lg">Patient Dashboard</p>
           </div>
           <button className="flex items-center space-x-2 px-6 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all">
@@ -125,7 +123,10 @@ export default function PatientDashboard() {
                   : "border-transparent text-gray-600 hover:text-gray-900"
               }`}
             >
-              {tab.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+              {tab
+                .split("-")
+                .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+                .join(" ")}
             </button>
           ))}
         </div>
@@ -216,7 +217,8 @@ export default function PatientDashboard() {
                             prescription.status
                           )}`}
                         >
-                          {prescription.status.charAt(0).toUpperCase() + prescription.status.slice(1)}
+                          {prescription.status.charAt(0).toUpperCase() +
+                            prescription.status.slice(1)}
                         </span>
                       </div>
                     </div>
@@ -231,7 +233,11 @@ export default function PatientDashboard() {
         {activeTab !== "appointments" && activeTab !== "prescriptions" && (
           <div className="bg-white rounded-xl p-8 text-center">
             <p className="text-gray-600 text-lg">
-              {activeTab.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")} section coming soon...
+              {activeTab
+                .split("-")
+                .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+                .join(" ")}{" "}
+              section coming soon...
             </p>
           </div>
         )}

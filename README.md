@@ -5,6 +5,7 @@ A complete, production-ready Hospital Management System built with the MERN stac
 ## ✨ Key Features
 
 ### 🔐 Authentication & Authorization
+
 - JWT-based authentication
 - Bcrypt password hashing
 - Role-based access control (Admin, Doctor, Patient)
@@ -13,6 +14,7 @@ A complete, production-ready Hospital Management System built with the MERN stac
 ### 👥 Role Management
 
 **Admin**
+
 - Dashboard with key metrics and statistics
 - Manage doctors, patients, and staff
 - Department management
@@ -20,6 +22,7 @@ A complete, production-ready Hospital Management System built with the MERN stac
 - Billing and revenue tracking
 
 **Doctor**
+
 - View assigned appointments
 - Add diagnosis and medical findings
 - Write and manage prescriptions
@@ -27,6 +30,7 @@ A complete, production-ready Hospital Management System built with the MERN stac
 - Manage medical records
 
 **Patient**
+
 - Register and manage account
 - Book and manage appointments
 - View prescriptions
@@ -34,6 +38,7 @@ A complete, production-ready Hospital Management System built with the MERN stac
 - Update health information
 
 ### 📋 Core Features
+
 - **Appointment Scheduling** - Intelligent appointment booking with conflict detection
 - **Medical Records** - Comprehensive patient medical history
 - **Prescriptions** - Digital prescription management
@@ -53,6 +58,7 @@ A complete, production-ready Hospital Management System built with the MERN stac
 ## 📦 Installation
 
 ### Prerequisites
+
 - Node.js 16+ and npm/pnpm
 - MongoDB (local or Atlas)
 
@@ -111,11 +117,13 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed documentation.
 ## 🔌 API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - Login user
 - `GET /api/auth/me` - Get current user
 
 ### Admin
+
 - `GET /api/admin/dashboard-stats` - Dashboard statistics
 - `GET /api/admin/doctors` - List doctors
 - `GET /api/admin/patients` - List patients
@@ -125,6 +133,7 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed documentation.
 - `GET /api/admin/billing` - View billing information
 
 ### Doctor
+
 - `GET /api/doctor/appointments` - My appointments
 - `PUT /api/doctor/appointments/:id/diagnosis` - Update diagnosis
 - `POST /api/doctor/prescriptions` - Write prescription
@@ -132,6 +141,7 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed documentation.
 - `POST /api/doctor/medical-records` - Create medical record
 
 ### Patient
+
 - `POST /api/patient/appointments` - Book appointment
 - `GET /api/patient/appointments` - My appointments
 - `DELETE /api/patient/appointments/:id` - Cancel appointment
@@ -187,12 +197,14 @@ NODE_ENV=development
 ## 🚀 Deployment
 
 ### Docker
+
 ```bash
 docker build -t hospital-ms .
 docker run -p 8080:8080 hospital-ms
 ```
 
 ### Netlify / Vercel
+
 1. Connect your repository
 2. Set environment variables
 3. Deploy
@@ -220,6 +232,7 @@ MIT License - feel free to use this project for commercial and personal use.
 ## 🆘 Support
 
 For issues and questions:
+
 1. Check the [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
 2. Review the API endpoints
 3. Check environment variables

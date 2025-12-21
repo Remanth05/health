@@ -85,15 +85,8 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+        <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
@@ -112,12 +105,18 @@ export default function Header() {
                   </Link>
                 )}
                 {user?.role === "doctor" && (
-                  <Link to="/doctor" className="block text-gray-700 hover:text-gray-900 font-medium">
+                  <Link
+                    to="/doctor"
+                    className="block text-gray-700 hover:text-gray-900 font-medium"
+                  >
                     Dashboard
                   </Link>
                 )}
                 {user?.role === "patient" && (
-                  <Link to="/patient" className="block text-gray-700 hover:text-gray-900 font-medium">
+                  <Link
+                    to="/patient"
+                    className="block text-gray-700 hover:text-gray-900 font-medium"
+                  >
                     Dashboard
                   </Link>
                 )}

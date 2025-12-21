@@ -3,6 +3,7 @@
 ## ✅ What's Included
 
 A complete, production-ready Hospital Management System with:
+
 - ✅ Full MERN stack implementation (MongoDB, Express, React, Node.js)
 - ✅ Pure JavaScript (.jsx) - no TypeScript
 - ✅ Role-based access control (Admin, Doctor, Patient)
@@ -15,20 +16,24 @@ A complete, production-ready Hospital Management System with:
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
+
 ```bash
 pnpm install
 ```
 
 ### 2. Configure MongoDB
+
 The application uses MongoDB. You have two options:
 
 **Option A: Local MongoDB**
+
 ```bash
 # Install MongoDB locally, then update .env
 MONGO_URI=mongodb://localhost:27017/hospital-ms
 ```
 
 **Option B: MongoDB Atlas (Cloud)**
+
 ```bash
 # Sign up at https://www.mongodb.com/cloud/atlas
 # Create a cluster and get the connection string
@@ -37,7 +42,9 @@ MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/hospital-ms
 ```
 
 ### 3. Environment Variables
+
 The `.env` file is already configured with defaults:
+
 ```env
 VITE_API_URL=http://localhost:8080
 MONGO_URI=mongodb://localhost:27017/hospital-ms
@@ -48,12 +55,14 @@ NODE_ENV=development
 ```
 
 For production, you must change `JWT_SECRET` to a secure random string:
+
 ```bash
 # Generate a secure JWT secret
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
 ### 4. Start Development Server
+
 ```bash
 pnpm dev
 ```
@@ -99,6 +108,7 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for complete details.
 ## 🔑 Key Features by Role
 
 ### 👨‍💼 Admin
+
 - Dashboard with key metrics
 - Manage doctors, patients, and departments
 - View all appointments
@@ -106,6 +116,7 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for complete details.
 - System statistics
 
 ### 👨‍⚕️ Doctor
+
 - View personal appointments
 - Add diagnosis and findings
 - Write prescriptions
@@ -113,6 +124,7 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for complete details.
 - Create medical records
 
 ### 🧑‍🤝‍🧑 Patient
+
 - Book appointments
 - View appointments
 - Cancel appointments
@@ -132,6 +144,7 @@ See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for complete details.
 ## 📡 Testing API Endpoints
 
 ### Using cURL
+
 ```bash
 # Register
 curl -X POST http://localhost:8080/api/auth/register \
@@ -158,6 +171,7 @@ curl http://localhost:8080/api/auth/me \
 ```
 
 ### Using Postman
+
 1. Import the endpoints from the README.md
 2. Set Authorization header: `Bearer {token}`
 3. Test each endpoint
@@ -210,34 +224,40 @@ Before production deployment:
 ## 🚀 Production Deployment
 
 ### Build
+
 ```bash
 pnpm build
 ```
 
 This creates:
+
 - `dist/spa/` - Frontend build
 - `dist/server/` - Backend build
 
 ### Deploy Options
 
 **1. Traditional VPS**
+
 ```bash
 npm start
 ```
 
 **2. Docker**
+
 ```bash
 docker build -t hospital-ms .
 docker run -p 8080:8080 hospital-ms
 ```
 
 **3. Netlify/Vercel**
+
 1. Push code to GitHub
 2. Connect repository to Netlify/Vercel
 3. Set environment variables
 4. Deploy
 
 **4. Heroku**
+
 ```bash
 heroku create hospital-ms
 heroku config:set JWT_SECRET=your-secret-key
@@ -248,15 +268,17 @@ git push heroku main
 ## 🆘 Troubleshooting
 
 ### MongoDB Connection Error
+
 ```
 Error: Cannot connect to MongoDB
-Solution: 
+Solution:
 1. Ensure MongoDB is running
 2. Check MONGO_URI in .env
 3. Verify credentials for Atlas
 ```
 
 ### Port Already in Use
+
 ```
 Error: Port 8080 is already in use
 Solution:
@@ -265,6 +287,7 @@ Solution:
 ```
 
 ### Authentication Failing
+
 ```
 Error: Invalid token
 Solution:
@@ -274,6 +297,7 @@ Solution:
 ```
 
 ### CORS Issues
+
 ```
 Error: Access to XMLHttpRequest has been blocked
 Solution:
@@ -284,6 +308,7 @@ Solution:
 ## 📚 API Documentation
 
 For complete API documentation, see [API_DOCS.md](API_DOCS.md) or check endpoints in:
+
 - `src/server/routes/authRoutes.js`
 - `src/server/routes/adminRoutes.js`
 - `src/server/routes/doctorRoutes.js`
@@ -292,7 +317,9 @@ For complete API documentation, see [API_DOCS.md](API_DOCS.md) or check endpoint
 ## 🎨 Customization
 
 ### Change Colors
+
 Edit `src/global.css` and `tailwind.config.js`:
+
 ```css
 :root {
   --primary: YOUR_HUE SATURATION% LIGHTNESS%;
@@ -300,6 +327,7 @@ Edit `src/global.css` and `tailwind.config.js`:
 ```
 
 ### Add New Features
+
 1. Create controller in `src/server/controllers/`
 2. Add routes in `src/server/routes/`
 3. Create React component/page
@@ -315,28 +343,37 @@ Edit `src/global.css` and `tailwind.config.js`:
 ## ⚙️ Advanced Configuration
 
 ### Change Database
+
 The system uses Mongoose. To switch to another database:
+
 1. Update connection in `src/server/index.js`
 2. Update models syntax if needed
 3. Install appropriate driver
 
 ### Add Email Notifications
+
 Install nodemailer:
+
 ```bash
 pnpm add nodemailer
 ```
+
 Then add email sending in relevant controllers.
 
 ### Add File Uploads
+
 Install multer:
+
 ```bash
 pnpm add multer
 ```
+
 Update medical records controller for file uploads.
 
 ## 📈 Monitoring & Logging
 
 For production, add:
+
 ```bash
 pnpm add winston  # Logging
 pnpm add express-rate-limit  # Rate limiting
@@ -355,6 +392,7 @@ pnpm add helmet  # Security headers
 ## ✨ What's Next?
 
 Consider adding:
+
 - Email notifications for appointments
 - SMS reminders
 - Video consultations

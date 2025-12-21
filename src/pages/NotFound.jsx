@@ -17,9 +17,7 @@ export default function NotFound() {
             </span>
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Page Not Found</h1>
-          <p className="text-gray-600 text-lg mb-8">
-            The page you're looking for doesn't exist.
-          </p>
+          <p className="text-gray-600 text-lg mb-8">The page you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate("/")}
             className="inline-flex items-center space-x-2 px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all"

@@ -1,4 +1,10 @@
-import { createContext, useState, useEffect, useCallback, useContext as useReactContext } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+  useContext as useReactContext,
+} from "react";
 
 export const AuthContext = createContext();
 
@@ -39,34 +45,31 @@ export function AuthProvider({ children }) {
     loadUser();
   }, [token]);
 
-  const login = useCallback(
-    async (email, password) => {
-      try {
-        const response = await fetch("/api/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
+  const login = useCallback(async (email, password) => {
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-        if (!response.ok) {
-          const error = await response.json();
-          throw new Error(error.error || "Login failed");
-        }
-
-        const data = await response.json();
-        localStorage.setItem("token", data.token);
-        setToken(data.token);
-        setUser(data.user);
-        return data;
-      } catch (error) {
-        console.error("Login error:", error);
-        throw error;
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Login failed");
       }
-    },
-    []
-  );
+
+      const data = await response.json();
+      localStorage.setItem("token", data.token);
+      setToken(data.token);
+      setUser(data.user);
+      return data;
+    } catch (error) {
+      console.error("Login error:", error);
+      throw error;
+    }
+  }, []);
 
   const register = useCallback(
     async (firstName, lastName, email, password, role = "patient", phone = "") => {
@@ -120,11 +123,7 @@ export function AuthProvider({ children }) {
     isAuthenticated: !!user,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {

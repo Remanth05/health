@@ -99,9 +99,7 @@ export const getAllAppointments = async (req, res) => {
 
 export const getBillingInfo = async (req, res) => {
   try {
-    const billings = await Billing.find()
-      .populate("patient")
-      .populate("appointment");
+    const billings = await Billing.find().populate("patient").populate("appointment");
     res.json(billings);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch billing information" });

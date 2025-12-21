@@ -51,9 +51,7 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
-                Email Address
-              </label>
+              <label className="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
@@ -69,9 +67,7 @@ export default function Login() {
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
-                Password
-              </label>
+              <label className="block text-sm font-medium text-gray-900 mb-2">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
@@ -100,9 +96,15 @@ export default function Login() {
           <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
             <p className="text-sm font-medium text-blue-900 mb-2">Demo Credentials:</p>
             <div className="space-y-2 text-sm text-blue-800">
-              <p><strong>Admin:</strong> admin@hospital.com / password</p>
-              <p><strong>Doctor:</strong> doctor@hospital.com / password</p>
-              <p><strong>Patient:</strong> patient@hospital.com / password</p>
+              <p>
+                <strong>Admin:</strong> admin@hospital.com / password
+              </p>
+              <p>
+                <strong>Doctor:</strong> doctor@hospital.com / password
+              </p>
+              <p>
+                <strong>Patient:</strong> patient@hospital.com / password
+              </p>
             </div>
           </div>
 

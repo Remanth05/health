@@ -1,7 +1,15 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import { ArrowRight, Stethoscope, Users, Calendar, FileText, BarChart3, Shield } from "lucide-react";
+import {
+  ArrowRight,
+  Stethoscope,
+  Users,
+  Calendar,
+  FileText,
+  BarChart3,
+  Shield,
+} from "lucide-react";
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
@@ -129,9 +137,7 @@ export default function Home() {
                 <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-purple-100 to-purple-200 mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
             ))}
@@ -165,7 +171,8 @@ const features = [
   {
     icon: <Stethoscope className="h-6 w-6 text-purple-600" />,
     title: "Doctor Management",
-    description: "Manage doctor profiles, specializations, schedules, and availability effortlessly",
+    description:
+      "Manage doctor profiles, specializations, schedules, and availability effortlessly",
   },
   {
     icon: <Users className="h-6 w-6 text-blue-600" />,
