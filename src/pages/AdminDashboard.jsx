@@ -7,6 +7,7 @@ import { toast } from "sonner";
 export default function AdminDashboard() {
   const { token, user } = useAuth();
   const [stats, setStats] = useState(null);
+  const [medicines, setMedicines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
 
