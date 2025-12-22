@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import Header from "../components/Header";
-import { Calendar, FileText, Users, Stethoscope } from "lucide-react";
+import { Calendar, FileText, Users, Stethoscope, Pill, DollarSign } from "lucide-react";
 import { toast } from "sonner";
 
 export default function DoctorDashboard() {
   const { token, user } = useAuth();
   const [appointments, setAppointments] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("appointments");
 
