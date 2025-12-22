@@ -3,6 +3,39 @@ import Prescription from "../models/Prescription.js";
 import MedicalRecord from "../models/MedicalRecord.js";
 import User from "../models/User.js";
 
+export const getAllDoctors = async (req, res) => {
+  try {
+    const doctors = await User.find({
+      role: "doctor",
+      isActive: true,
+    }).select("-password");
+
+    res.json(doctors);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch doctors" });
+  }
+};
+
+export const getDoctorById = async (req, res) => {
+  try {
+    const { doctorId } = req.params;
+
+    const doctor = await User.findOne({
+      _id: doctorId,
+      role: "doctor",
+      isActive: true,
+    }).select("-password");
+
+    if (!doctor) {
+      return res.status(404).json({ error: "Doctor not found" });
+    }
+
+    res.json(doctor);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch doctor" });
+  }
+};
+
 export const getDoctorAppointments = async (req, res) => {
   try {
     const appointments = await Appointment.find({
