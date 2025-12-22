@@ -282,16 +282,31 @@ export default function PatientDashboard() {
           </div>
         )}
 
-        {/* Placeholder for other tabs */}
-        {activeTab !== "appointments" && activeTab !== "prescriptions" && (
-          <div className="bg-white rounded-xl p-8 text-center">
-            <p className="text-gray-600 text-lg">
-              {activeTab
-                .split("-")
-                .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                .join(" ")}{" "}
-              section coming soon...
-            </p>
+        {/* Medical Records Tab */}
+        {activeTab === "medical-records" && (
+          <div className="space-y-4">
+            <div className="bg-white rounded-xl p-8 text-center">
+              <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+              <p className="text-gray-600 text-lg">No medical records available</p>
+              <p className="text-gray-500 mt-2">Your medical records will appear here</p>
+            </div>
+          </div>
+        )}
+
+        {/* Billing Tab */}
+        {activeTab === "billing" && (
+          <div className="space-y-4">
+            <div className="bg-white rounded-xl p-8">
+              <div className="flex items-center space-x-3 mb-6">
+                <DollarSign className="h-6 w-6 text-emerald-600" />
+                <h3 className="text-lg font-semibold text-gray-900">Billing & Invoices</h3>
+              </div>
+              <div className="text-center py-8">
+                <DollarSign className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600 text-lg">No invoices yet</p>
+                <p className="text-gray-500 mt-2">Your invoices and billing statements will appear here</p>
+              </div>
+            </div>
           </div>
         )}
       </div>
