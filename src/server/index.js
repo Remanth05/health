@@ -46,6 +46,7 @@ export function createServer() {
   app.use("/api/prescriptions", prescriptionRoutes);
   app.use("/api/billing", billingRoutes);
   app.use("/api/doctors", publicDoctorRoutes);
+  app.use("/api/medicines", medicineRoutes);
 
   // Health check
   app.get("/api/health", (_req, res) => {
