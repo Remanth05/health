@@ -72,7 +72,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const register = useCallback(
-    async (firstName, lastName, email, password, role = "patient", phone = "") => {
+    async (firstName, lastName, email, password, role = "patient", phone = "", department = "") => {
       try {
         const response = await fetch("/api/auth/register", {
           method: "POST",
@@ -86,6 +86,7 @@ export function AuthProvider({ children }) {
             password,
             role,
             phone,
+            department,
           }),
         });
 
