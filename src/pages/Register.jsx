@@ -57,7 +57,8 @@ export default function Register() {
         formData.email,
         formData.password,
         formData.role,
-        formData.phone
+        formData.phone,
+        formData.department
       );
 
       toast.success("Registration successful!");
