@@ -238,6 +238,65 @@ export default function AdminDashboard() {
             </div>
           </div>
         )}
+
+        {/* Medicines Tab */}
+        {activeTab === "medicines" && (
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-3">
+                  <Pill className="h-6 w-6 text-pink-600" />
+                  <h3 className="text-lg font-semibold text-gray-900">Medicine Inventory</h3>
+                </div>
+              </div>
+
+              {medicines.length === 0 ? (
+                <div className="text-center py-12">
+                  <Pill className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-600 text-lg">No medicines in inventory</p>
+                  <p className="text-gray-500 mt-2">Add medicines to manage inventory</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b-2 border-gray-200">
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Medicine Name</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Category</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Quantity</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Price</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {medicines.map((medicine) => (
+                        <tr key={medicine._id} className="border-b border-gray-200 hover:bg-gray-50">
+                          <td className="py-3 px-4 text-gray-900">{medicine.name}</td>
+                          <td className="py-3 px-4 text-gray-600 capitalize">{medicine.category}</td>
+                          <td className="py-3 px-4">
+                            <span className={`font-semibold ${medicine.quantity < 10 ? "text-red-600" : "text-green-600"}`}>
+                              {medicine.quantity} {medicine.unit}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4 text-gray-900">${medicine.price.toFixed(2)}</td>
+                          <td className="py-3 px-4">
+                            <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
+                              medicine.quantity < 10
+                                ? "bg-red-100 text-red-800"
+                                : "bg-green-100 text-green-800"
+                            }`}>
+                              {medicine.quantity < 10 ? "Low Stock" : "In Stock"}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
