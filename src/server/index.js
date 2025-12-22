@@ -11,6 +11,7 @@ import patientRoutes from "./routes/patientRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
 import prescriptionRoutes from "./routes/prescriptionRoutes.js";
 import billingRoutes from "./routes/billingRoutes.js";
+import publicDoctorRoutes from "./routes/publicDoctorRoutes.js";
 
 export function createServer() {
   const app = express();
