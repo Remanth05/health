@@ -153,9 +153,13 @@ export default function PatientDashboard() {
                     <h3 className="font-semibold text-gray-900">
                       Dr. {doctor.firstName} {doctor.lastName}
                     </h3>
-                    <p className="text-sm text-emerald-600">{doctor.specialization || "Specialist"}</p>
+                    <p className="text-sm text-emerald-600">
+                      {doctor.specialization || "Specialist"}
+                    </p>
                     {doctor.experience && (
-                      <p className="text-sm text-gray-600 mt-1">{doctor.experience} years experience</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        {doctor.experience} years experience
+                      </p>
                     )}
                   </div>
                 ))}
@@ -304,7 +308,9 @@ export default function PatientDashboard() {
               <div className="text-center py-8">
                 <DollarSign className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-600 text-lg">No invoices yet</p>
-                <p className="text-gray-500 mt-2">Your invoices and billing statements will appear here</p>
+                <p className="text-gray-500 mt-2">
+                  Your invoices and billing statements will appear here
+                </p>
               </div>
             </div>
           </div>

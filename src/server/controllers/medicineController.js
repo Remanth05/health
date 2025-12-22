@@ -26,7 +26,19 @@ export const getMedicineById = async (req, res) => {
 
 export const createMedicine = async (req, res) => {
   try {
-    const { name, genericName, manufacturer, category, dosage, price, quantity, unit, description, sideEffects, contraindications } = req.body;
+    const {
+      name,
+      genericName,
+      manufacturer,
+      category,
+      dosage,
+      price,
+      quantity,
+      unit,
+      description,
+      sideEffects,
+      contraindications,
+    } = req.body;
 
     if (!name) {
       return res.status(400).json({ error: "Medicine name is required" });
@@ -62,7 +74,20 @@ export const createMedicine = async (req, res) => {
 export const updateMedicine = async (req, res) => {
   try {
     const { medicineId } = req.params;
-    const { name, genericName, manufacturer, category, dosage, price, quantity, unit, description, sideEffects, contraindications, isActive } = req.body;
+    const {
+      name,
+      genericName,
+      manufacturer,
+      category,
+      dosage,
+      price,
+      quantity,
+      unit,
+      description,
+      sideEffects,
+      contraindications,
+      isActive,
+    } = req.body;
 
     const medicine = await Medicine.findById(medicineId);
     if (!medicine) {
@@ -144,9 +169,9 @@ export const updateInventory = async (req, res) => {
 
 export const getLowStockMedicines = async (req, res) => {
   try {
-    const medicines = await Medicine.find({ 
+    const medicines = await Medicine.find({
       isActive: true,
-      quantity: { $lt: 10 }
+      quantity: { $lt: 10 },
     });
 
     res.json(medicines);

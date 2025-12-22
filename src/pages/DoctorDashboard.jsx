@@ -197,7 +197,8 @@ export default function DoctorDashboard() {
                     <div className="flex items-start justify-between">
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900">
-                          Prescription for {prescription.patient?.firstName} {prescription.patient?.lastName}
+                          Prescription for {prescription.patient?.firstName}{" "}
+                          {prescription.patient?.lastName}
                         </h3>
                         <p className="text-gray-600 mt-1">
                           Issued: {new Date(prescription.issuedDate).toLocaleDateString()}

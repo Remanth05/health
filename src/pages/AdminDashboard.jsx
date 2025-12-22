@@ -68,19 +68,21 @@ export default function AdminDashboard() {
 
         {/* Navigation Tabs */}
         <div className="flex space-x-4 mb-8 border-b border-gray-200 overflow-x-auto">
-          {["overview", "doctors", "patients", "appointments", "billing", "medicines"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 font-medium border-b-2 transition-colors ${
-                activeTab === tab
-                  ? "border-purple-600 text-purple-600"
-                  : "border-transparent text-gray-600 hover:text-gray-900"
-              }`}
-            >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
-            </button>
-          ))}
+          {["overview", "doctors", "patients", "appointments", "billing", "medicines"].map(
+            (tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 font-medium border-b-2 transition-colors ${
+                  activeTab === tab
+                    ? "border-purple-600 text-purple-600"
+                    : "border-transparent text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            )
+          )}
         </div>
 
         {/* Overview Tab */}
@@ -261,30 +263,45 @@ export default function AdminDashboard() {
                   <table className="w-full">
                     <thead>
                       <tr className="border-b-2 border-gray-200">
-                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Medicine Name</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Category</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Quantity</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">
+                          Medicine Name
+                        </th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">
+                          Category
+                        </th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-900">
+                          Quantity
+                        </th>
                         <th className="text-left py-3 px-4 font-semibold text-gray-900">Price</th>
                         <th className="text-left py-3 px-4 font-semibold text-gray-900">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       {medicines.map((medicine) => (
-                        <tr key={medicine._id} className="border-b border-gray-200 hover:bg-gray-50">
+                        <tr
+                          key={medicine._id}
+                          className="border-b border-gray-200 hover:bg-gray-50"
+                        >
                           <td className="py-3 px-4 text-gray-900">{medicine.name}</td>
-                          <td className="py-3 px-4 text-gray-600 capitalize">{medicine.category}</td>
+                          <td className="py-3 px-4 text-gray-600 capitalize">
+                            {medicine.category}
+                          </td>
                           <td className="py-3 px-4">
-                            <span className={`font-semibold ${medicine.quantity < 10 ? "text-red-600" : "text-green-600"}`}>
+                            <span
+                              className={`font-semibold ${medicine.quantity < 10 ? "text-red-600" : "text-green-600"}`}
+                            >
                               {medicine.quantity} {medicine.unit}
                             </span>
                           </td>
                           <td className="py-3 px-4 text-gray-900">${medicine.price.toFixed(2)}</td>
                           <td className="py-3 px-4">
-                            <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
-                              medicine.quantity < 10
-                                ? "bg-red-100 text-red-800"
-                                : "bg-green-100 text-green-800"
-                            }`}>
+                            <span
+                              className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
+                                medicine.quantity < 10
+                                  ? "bg-red-100 text-red-800"
+                                  : "bg-green-100 text-green-800"
+                              }`}
+                            >
                               {medicine.quantity < 10 ? "Low Stock" : "In Stock"}
                             </span>
                           </td>

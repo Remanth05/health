@@ -24,7 +24,7 @@ export function createServer() {
 
   // Connect to MongoDB
   const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017/hospital-ms";
-  
+
   mongoose
     .connect(mongoUri, {
       useNewUrlParser: true,

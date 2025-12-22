@@ -89,7 +89,9 @@ export default function DoctorProfile() {
 
               {/* Details */}
               <div className="flex-grow pt-8">
-                <h1 className="text-4xl font-bold text-gray-900">Dr. {doctor.firstName} {doctor.lastName}</h1>
+                <h1 className="text-4xl font-bold text-gray-900">
+                  Dr. {doctor.firstName} {doctor.lastName}
+                </h1>
                 <p className="text-xl text-blue-600 font-semibold mt-2">{doctor.specialization}</p>
                 {doctor.experience && (
                   <p className="text-gray-600 mt-2">{doctor.experience} years of experience</p>

@@ -148,7 +148,9 @@ export default function AppointmentBooking() {
         {/* Form Card */}
         <div className="bg-white rounded-2xl shadow-lg p-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Book an Appointment</h1>
-          <p className="text-gray-600 mb-8">with Dr. {doctor.firstName} {doctor.lastName}</p>
+          <p className="text-gray-600 mb-8">
+            with Dr. {doctor.firstName} {doctor.lastName}
+          </p>
 
           {/* Doctor Info */}
           <div className="bg-emerald-50 rounded-lg p-4 mb-8 border border-emerald-200">
@@ -159,9 +161,7 @@ export default function AppointmentBooking() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Appointment Date */}
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
-                Preferred Date
-              </label>
+              <label className="block text-sm font-medium text-gray-900 mb-2">Preferred Date</label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
@@ -178,9 +178,7 @@ export default function AppointmentBooking() {
 
             {/* Time Slot */}
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
-                Preferred Time
-              </label>
+              <label className="block text-sm font-medium text-gray-900 mb-2">Preferred Time</label>
               <div className="relative">
                 <Clock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <select
