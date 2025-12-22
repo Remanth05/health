@@ -58,8 +58,8 @@ export default function AdminDashboard() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex space-x-4 mb-8 border-b border-gray-200">
-          {["overview", "doctors", "patients", "appointments", "billing"].map((tab) => (
+        <div className="flex space-x-4 mb-8 border-b border-gray-200 overflow-x-auto">
+          {["overview", "doctors", "patients", "appointments", "billing", "medicines"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
