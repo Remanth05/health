@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Header from "../components/Header";
 import { User, Mail, Lock, Phone, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+
+const DEPARTMENTS = [
+  { id: "cardiology", name: "Cardiology" },
+  { id: "dermatology", name: "Dermatology" },
+  { id: "pediatrics", name: "Pediatrics" },
+  { id: "orthopedics", name: "Orthopedics" },
+  { id: "neurology", name: "Neurology" },
+  { id: "oncology", name: "Oncology" },
+  { id: "psychiatry", name: "Psychiatry" },
+  { id: "general-medicine", name: "General Medicine" },
+];
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -14,6 +25,7 @@ export default function Register() {
     password: "",
     confirmPassword: "",
     role: "patient",
+    department: "",
   });
   const [loading, setLoading] = useState(false);
   const { register } = useAuth();
