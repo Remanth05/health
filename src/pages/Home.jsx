@@ -176,6 +176,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Expert Doctors Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-purple-50 to-pink-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              Our Expert Doctors
+            </h2>
+            <p className="text-xl text-gray-600">
+              Meet our highly qualified healthcare professionals
+            </p>
+          </div>
+
+          {loadingDoctors ? (
+            <div className="flex justify-center items-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+            </div>
+          ) : doctors.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {doctors.map((doctor, index) => (
+                <div
+                  key={doctor._id}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  onClick={() => isAuthenticated && doctor.role === "doctor" && navigate(`/doctor/${doctor._id}`)}
+                >
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-24"></div>
+                  <div className="px-6 pb-6 pt-4">
+                    <div className="mb-4">
+                      <h3 className="text-lg font-bold text-gray-900">
+                        Dr. {doctor.firstName} {doctor.lastName}
+                      </h3>
+                      <p className="text-sm text-purple-600 font-semibold mt-1">
+                        {doctor.specialization || "Specialist"}
+                      </p>
+                    </div>
+
+                    <div className="mb-4 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                      <p className="text-sm italic text-gray-700">
+                        "{DOCTOR_QUOTES[index % DOCTOR_QUOTES.length]}"
+                      </p>
+                    </div>
+
+                    <div className="flex items-center space-x-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                      <span className="text-sm text-gray-600 ml-2">(4.9)</span>
+                    </div>
+
+                    {isAuthenticated ? (
+                      <button
+                        onClick={() => navigate(`/doctor/${doctor._id}`)}
+                        className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all"
+                      >
+                        View Profile
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => navigate("/register")}
+                        className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all"
+                      >
+                        Book Now
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">No doctors available at the moment</p>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl p-12 text-center text-white">
