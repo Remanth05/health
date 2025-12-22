@@ -18,7 +18,7 @@ export default function PatientDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [appointmentsRes, prescriptionsRes] = await Promise.all([
+        const [appointmentsRes, prescriptionsRes, doctorsRes] = await Promise.all([
           fetch("/api/patient/appointments", {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -29,6 +29,7 @@ export default function PatientDashboard() {
               Authorization: `Bearer ${token}`,
             },
           }),
+          fetch("/api/doctors"),
         ]);
 
         if (appointmentsRes.ok) {
@@ -39,6 +40,11 @@ export default function PatientDashboard() {
         if (prescriptionsRes.ok) {
           const prescriptionsData = await prescriptionsRes.json();
           setPrescriptions(prescriptionsData);
+        }
+
+        if (doctorsRes.ok) {
+          const doctorsData = await doctorsRes.json();
+          setDoctors(doctorsData);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
