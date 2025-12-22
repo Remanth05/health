@@ -30,4 +30,37 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.post("/", async (req, res) => {
+  try {
+    const { doctor, appointmentDate, timeSlot, reason, department } = req.body;
+    const patientId = req.user.id;
+
+    if (!doctor || !appointmentDate || !timeSlot) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    const appointment = new Appointment({
+      patient: patientId,
+      doctor,
+      appointmentDate,
+      timeSlot,
+      reason,
+      department,
+      status: "scheduled",
+    });
+
+    await appointment.save();
+    const populatedAppointment = await appointment.populate([
+      { path: "patient" },
+      { path: "doctor" },
+      { path: "department" },
+    ]);
+
+    res.status(201).json(populatedAppointment);
+  } catch (error) {
+    console.error("Error creating appointment:", error);
+    res.status(500).json({ error: "Failed to create appointment" });
+  }
+});
+
 export default router;
