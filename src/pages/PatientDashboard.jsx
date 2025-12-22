@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import { Calendar, FileText, Pill, Users, Plus } from "lucide-react";
+import { Calendar, FileText, Pill, Users, Plus, Stethoscope, DollarSign } from "lucide-react";
 import { toast } from "sonner";
 
 export default function PatientDashboard() {
   const { token, user } = useAuth();
+  const navigate = useNavigate();
   const [appointments, setAppointments] = useState([]);
   const [prescriptions, setPrescriptions] = useState([]);
+  const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("appointments");
+  const [showDoctorList, setShowDoctorList] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
