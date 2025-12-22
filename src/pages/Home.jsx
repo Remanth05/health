@@ -1,5 +1,6 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import {
   ArrowRight,
@@ -9,11 +10,40 @@ import {
   FileText,
   BarChart3,
   Shield,
+  Star,
 } from "lucide-react";
+import { toast } from "sonner";
+
+const DOCTOR_QUOTES = [
+  "Healthcare is the cornerstone of a healthy nation.",
+  "Your health is an investment, not an expense.",
+  "Compassion and expertise, our commitment to you.",
+  "Healing starts with listening and understanding.",
+];
 
 export default function Home() {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, token } = useAuth();
   const navigate = useNavigate();
+  const [doctors, setDoctors] = useState([]);
+  const [loadingDoctors, setLoadingDoctors] = useState(true);
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await fetch("/api/doctors");
+        if (response.ok) {
+          const data = await response.json();
+          setDoctors(data.slice(0, 4));
+        }
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      } finally {
+        setLoadingDoctors(false);
+      }
+    };
+
+    fetchDoctors();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
