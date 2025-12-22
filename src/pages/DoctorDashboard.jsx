@@ -39,6 +39,29 @@ export default function DoctorDashboard() {
     }
   }, [token]);
 
+  useEffect(() => {
+    const fetchPrescriptions = async () => {
+      try {
+        const response = await fetch("/api/prescriptions", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setPrescriptions(data);
+        }
+      } catch (error) {
+        console.error("Error fetching prescriptions:", error);
+      }
+    };
+
+    if (token) {
+      fetchPrescriptions();
+    }
+  }, [token]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
