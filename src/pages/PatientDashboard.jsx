@@ -77,7 +77,13 @@ export default function PatientDashboard() {
             <h1 className="text-4xl font-bold text-gray-900">Welcome, {user?.firstName}</h1>
             <p className="text-gray-600 text-lg">Patient Dashboard</p>
           </div>
-          <button className="flex items-center space-x-2 px-6 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all">
+          <button
+            onClick={() => {
+              // Show available doctors and allow selection
+              setShowDoctorList(!showDoctorList);
+            }}
+            className="flex items-center space-x-2 px-6 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all"
+          >
             <Plus className="h-5 w-5" />
             <span>Book Appointment</span>
           </button>
