@@ -12,6 +12,8 @@ import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/AdminDashboard";
 import DoctorDashboard from "./pages/DoctorDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
+import DoctorProfile from "./pages/DoctorProfile";
+import AppointmentBooking from "./pages/AppointmentBooking";
 
 // Protected Route Component
 import ProtectedRoute from "./components/ProtectedRoute";
