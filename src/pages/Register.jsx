@@ -189,6 +189,27 @@ export default function Register() {
               </div>
             </div>
 
+            {/* Department (Only for doctors) */}
+            {formData.role === "doctor" && (
+              <div>
+                <label className="block text-sm font-medium text-gray-900 mb-2">Department</label>
+                <select
+                  name="department"
+                  value={formData.department}
+                  onChange={handleChange}
+                  required={formData.role === "doctor"}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                >
+                  <option value="">Select a department</option>
+                  {DEPARTMENTS.map((dept) => (
+                    <option key={dept.id} value={dept.id}>
+                      {dept.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             {/* Password */}
             <div>
               <label className="block text-sm font-medium text-gray-900 mb-2">Password</label>
