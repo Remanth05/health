@@ -127,9 +127,46 @@ export default function PatientDashboard() {
           />
         </div>
 
+        {/* Doctor Selection Modal */}
+        {showDoctorList && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl max-w-2xl w-full max-h-96 overflow-y-auto">
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
+                <h2 className="text-2xl font-bold text-gray-900">Select a Doctor</h2>
+                <button
+                  onClick={() => setShowDoctorList(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {doctors.map((doctor) => (
+                  <div
+                    key={doctor._id}
+                    className="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-all cursor-pointer"
+                    onClick={() => {
+                      navigate(`/book-appointment/${doctor._id}`);
+                      setShowDoctorList(false);
+                    }}
+                  >
+                    <h3 className="font-semibold text-gray-900">
+                      Dr. {doctor.firstName} {doctor.lastName}
+                    </h3>
+                    <p className="text-sm text-emerald-600">{doctor.specialization || "Specialist"}</p>
+                    {doctor.experience && (
+                      <p className="text-sm text-gray-600 mt-1">{doctor.experience} years experience</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Navigation Tabs */}
         <div className="flex space-x-4 mb-8 border-b border-gray-200">
-          {["appointments", "prescriptions", "medical-records", "profile"].map((tab) => (
+          {["appointments", "prescriptions", "medical-records", "billing"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
