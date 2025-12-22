@@ -56,6 +56,22 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/doctor/:doctorId"
+              element={
+                <ProtectedRoute allowedRoles={["patient"]}>
+                  <DoctorProfile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/book-appointment/:doctorId"
+              element={
+                <ProtectedRoute allowedRoles={["patient"]}>
+                  <AppointmentBooking />
+                </ProtectedRoute>
+              }
+            />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
