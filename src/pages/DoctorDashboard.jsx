@@ -179,16 +179,63 @@ export default function DoctorDashboard() {
           </div>
         )}
 
-        {/* Placeholder for other tabs */}
-        {activeTab !== "appointments" && (
+        {/* Prescriptions Tab */}
+        {activeTab === "prescriptions" && (
+          <div className="space-y-4">
+            {prescriptions.length === 0 ? (
+              <div className="bg-white rounded-xl p-8 text-center">
+                <Pill className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600 text-lg">No prescriptions issued yet</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {prescriptions.map((prescription) => (
+                  <div
+                    key={prescription._id}
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-elevated transition-all"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          Prescription for {prescription.patient?.firstName} {prescription.patient?.lastName}
+                        </h3>
+                        <p className="text-gray-600 mt-1">
+                          Issued: {new Date(prescription.issuedDate).toLocaleDateString()}
+                        </p>
+                        <div className="mt-4">
+                          <p className="font-semibold text-gray-900">Medications:</p>
+                          <ul className="mt-2 space-y-2">
+                            {prescription.medications?.map((med, idx) => (
+                              <li key={idx} className="text-gray-600 text-sm">
+                                • {med.name} - {med.dosage} - {med.frequency}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Medical Records Tab */}
+        {activeTab === "medical-records" && (
           <div className="bg-white rounded-xl p-8 text-center">
-            <p className="text-gray-600 text-lg">
-              {activeTab
-                .split("-")
-                .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                .join(" ")}{" "}
-              management coming soon...
-            </p>
+            <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-600 text-lg">No medical records available</p>
+            <p className="text-gray-500 mt-2">Medical records will appear here</p>
+          </div>
+        )}
+
+        {/* Patients Tab */}
+        {activeTab === "patients" && (
+          <div className="bg-white rounded-xl p-8 text-center">
+            <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-600 text-lg">No patients assigned yet</p>
+            <p className="text-gray-500 mt-2">Your patients will appear here</p>
           </div>
         )}
       </div>
