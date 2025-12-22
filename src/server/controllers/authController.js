@@ -20,11 +20,16 @@ const generateToken = (user) => {
 
 export const register = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, role, phone } = req.body;
+    const { firstName, lastName, email, password, role, phone, department } = req.body;
 
     // Validate input
     if (!firstName || !lastName || !email || !password) {
       return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Validate doctor department
+    if (role === "doctor" && !department) {
+      return res.status(400).json({ error: "Department is required for doctors" });
     }
 
     // Check if user already exists
@@ -41,6 +46,7 @@ export const register = async (req, res) => {
       password,
       phone,
       role: role || "patient",
+      specialization: role === "doctor" ? department : undefined,
     });
 
     await user.save();
@@ -56,6 +62,7 @@ export const register = async (req, res) => {
         email: user.email,
         role: user.role,
         phone: user.phone,
+        specialization: user.specialization,
       },
     });
   } catch (error) {
