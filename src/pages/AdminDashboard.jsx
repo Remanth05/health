@@ -14,18 +14,26 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch("/api/admin/dashboard-stats", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const [statsRes, medicinesRes] = await Promise.all([
+          fetch("/api/admin/dashboard-stats", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }),
+          fetch("/api/medicines"),
+        ]);
 
-        if (!response.ok) {
+        if (!statsRes.ok) {
           throw new Error("Failed to fetch stats");
         }
 
-        const data = await response.json();
+        const data = await statsRes.json();
         setStats(data);
+
+        if (medicinesRes.ok) {
+          const medicinesData = await medicinesRes.json();
+          setMedicines(medicinesData);
+        }
       } catch (error) {
         console.error("Error fetching stats:", error);
         toast.error("Failed to load dashboard data");
