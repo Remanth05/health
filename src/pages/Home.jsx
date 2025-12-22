@@ -123,7 +123,8 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 rounded-3xl blur-3xl opacity-30"></div>
               <div className="relative bg-white rounded-3xl p-8 shadow-elevated">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
+                  <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl cursor-pointer hover:shadow-lg transition-all"
+                    onClick={() => isAuthenticated && navigate("/patient")}>
                     <Stethoscope className="h-8 w-8 text-purple-600 mb-2" />
                     <p className="text-sm font-semibold text-gray-900">Expert Doctors</p>
                   </div>
