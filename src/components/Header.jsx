@@ -123,13 +123,29 @@ export default function Header() {
                   </Link>
                 )}
                 {user?.role === "patient" && (
-                  <Link
-                    to="/patient"
-                    className="block text-gray-700 hover:text-gray-900 font-medium"
-                  >
-                    Dashboard
-                  </Link>
+                  <>
+                    <Link
+                      to="/patient"
+                      className="block text-gray-700 hover:text-gray-900 font-medium"
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      to="/medicines"
+                      className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 font-medium"
+                    >
+                      <Pill className="h-4 w-4" />
+                      <span>Medicines</span>
+                    </Link>
+                  </>
                 )}
+                <Link
+                  to="/profile"
+                  className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 font-medium"
+                >
+                  <UserIcon className="h-4 w-4" />
+                  <span>Edit Profile</span>
+                </Link>
                 <button
                   onClick={handleLogout}
                   className="w-full flex items-center space-x-2 px-4 py-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 font-medium"
