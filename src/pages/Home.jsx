@@ -15,10 +15,18 @@ import {
 import { toast } from "sonner";
 
 const DOCTOR_QUOTES = [
-  "Healthcare is the cornerstone of a healthy nation.",
-  "Your health is an investment, not an expense.",
-  "Compassion and expertise, our commitment to you.",
-  "Healing starts with listening and understanding.",
+  "The greatest wealth is health.",
+  "To study the phenomena of disease without books is to sail an uncharted sea.",
+  "Medicine is a science of uncertainty and an art of probability.",
+  "The art of medicine consists in amusing the patient while nature cures the disease.",
+  "Health is a state of complete physical, mental and social well-being.",
+  "Every patient carries her or his own doctor inside.",
+  "The task of medicine is to heal the sick, not to prolong life indefinitely.",
+  "Healing is a matter of time, but it is sometimes also a matter of opportunity.",
+  "Medicine is not only a science; it is also an art. It does not consist of compounds and pills alone.",
+  "The best doctor gives the least medicines.",
+  "Our work is not just to cure the sick but to prevent the healthy from becoming sick.",
+  "To know the cause of a disease is to understand the cure.",
 ];
 
 export default function Home() {
