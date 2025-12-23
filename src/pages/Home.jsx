@@ -73,7 +73,7 @@ export default function Home() {
                     {user?.role === "admin" && (
                       <button
                         onClick={() => navigate("/admin")}
-                        className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all"
+                        className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg hover:shadow-xl"
                       >
                         Admin Dashboard
                         <ArrowRight className="ml-2 h-5 w-5" />
@@ -82,34 +82,43 @@ export default function Home() {
                     {user?.role === "doctor" && (
                       <button
                         onClick={() => navigate("/doctor")}
-                        className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold hover:from-blue-700 hover:to-blue-800 transition-all"
+                        className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
                       >
                         Doctor Dashboard
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </button>
                     )}
                     {user?.role === "patient" && (
-                      <button
-                        onClick={() => navigate("/patient")}
-                        className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all"
-                      >
-                        Patient Dashboard
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </button>
+                      <>
+                        <button
+                          onClick={() => navigate("/patient")}
+                          className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all shadow-lg hover:shadow-xl"
+                        >
+                          Patient Dashboard
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </button>
+                        <button
+                          onClick={() => navigate("/medicines")}
+                          className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-gradient-to-r from-pink-600 to-pink-700 text-white font-semibold hover:from-pink-700 hover:to-pink-800 transition-all shadow-lg hover:shadow-xl"
+                        >
+                          Browse Medicines
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </button>
+                      </>
                     )}
                   </>
                 ) : (
                   <>
                     <button
                       onClick={() => navigate("/register")}
-                      className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all"
+                      className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg hover:shadow-xl"
                     >
                       Get Started
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </button>
                     <button
                       onClick={() => navigate("/login")}
-                      className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all"
+                      className="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-gray-300 text-gray-900 font-semibold hover:border-purple-400 hover:bg-purple-50 transition-all"
                     >
                       Sign In
                     </button>
