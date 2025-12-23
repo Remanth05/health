@@ -1,6 +1,6 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-import { LogOut, Menu, X } from "lucide-react";
+import { LogOut, Menu, X, Pill, User as UserIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function Header() {
