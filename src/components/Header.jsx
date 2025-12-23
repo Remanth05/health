@@ -43,9 +43,15 @@ export default function Header() {
                 </Link>
               )}
               {user?.role === "patient" && (
-                <Link to="/patient" className="text-gray-700 hover:text-gray-900 font-medium">
-                  Dashboard
-                </Link>
+                <>
+                  <Link to="/patient" className="text-gray-700 hover:text-gray-900 font-medium">
+                    Dashboard
+                  </Link>
+                  <Link to="/medicines" className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 font-medium">
+                    <Pill className="h-4 w-4" />
+                    <span>Medicines</span>
+                  </Link>
+                </>
               )}
             </>
           )}
