@@ -14,6 +14,8 @@ import DoctorDashboard from "./pages/DoctorDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
 import DoctorProfile from "./pages/DoctorProfile";
 import AppointmentBooking from "./pages/AppointmentBooking";
+import MedicineStore from "./pages/MedicineStore";
+import ProfileEdit from "./pages/ProfileEdit";
 
 // Protected Route Component
 import ProtectedRoute from "./components/ProtectedRoute";
