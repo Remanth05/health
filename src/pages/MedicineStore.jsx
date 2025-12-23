@@ -43,7 +43,8 @@ export default function MedicineStore() {
     const matchesCategory = selectedCategory === "all" || medicine.category === selectedCategory;
     const matchesSearch =
       medicine.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (medicine.genericName && medicine.genericName.toLowerCase().includes(searchQuery.toLowerCase()));
+      (medicine.genericName &&
+        medicine.genericName.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -55,7 +56,9 @@ export default function MedicineStore() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Medicine Store</h1>
-          <p className="text-xl text-gray-600">Browse and explore our complete medicine inventory</p>
+          <p className="text-xl text-gray-600">
+            Browse and explore our complete medicine inventory
+          </p>
         </div>
 
         {/* Search Bar */}
@@ -164,7 +167,9 @@ export default function MedicineStore() {
 
                   {/* Price */}
                   <div className="mb-4 flex items-end space-x-2">
-                    <span className="text-3xl font-bold text-gray-900">${medicine.price.toFixed(2)}</span>
+                    <span className="text-3xl font-bold text-gray-900">
+                      ${medicine.price.toFixed(2)}
+                    </span>
                     <span className="text-sm text-gray-600 mb-1">per {medicine.unit}</span>
                   </div>
 

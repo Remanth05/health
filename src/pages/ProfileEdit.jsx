@@ -112,9 +112,7 @@ export default function ProfileEdit() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* First Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">
-                    First Name
-                  </label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">First Name</label>
                   <input
                     type="text"
                     name="firstName"
@@ -126,9 +124,7 @@ export default function ProfileEdit() {
 
                 {/* Last Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-900 mb-2">
-                    Last Name
-                  </label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Last Name</label>
                   <input
                     type="text"
                     name="lastName"
