@@ -74,6 +74,15 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/medicines" element={<MedicineStore />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute allowedRoles={["patient", "doctor", "admin"]}>
+                  <ProfileEdit />
+                </ProtectedRoute>
+              }
+            />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
