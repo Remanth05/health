@@ -61,9 +61,13 @@ export default function Header() {
         <div className="hidden md:flex items-center space-x-4">
           {isAuthenticated ? (
             <>
-              <span className="text-sm text-gray-700">
-                {user?.firstName} {user?.lastName}
-              </span>
+              <Link
+                to="/profile"
+                className="flex items-center space-x-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 font-medium transition-colors"
+              >
+                <UserIcon className="h-4 w-4" />
+                <span>{user?.firstName}</span>
+              </Link>
               <button
                 onClick={handleLogout}
                 className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 font-medium transition-colors"
